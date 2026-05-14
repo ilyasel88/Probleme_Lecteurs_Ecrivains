@@ -28,14 +28,16 @@ Une interface graphique permet de configurer, lancer, suivre et arrêter la simu
 ## 🗂️ Structure du projet
 
 ```
-.
-├── Main.java               # Point d'entrée de l'application
-├── InterfaceGraphique.java # Interface Swing (GUI)
-├── Simulateur.java         # Orchestration des threads
-├── RessourcePartagee.java  # Ressource protégée par ReentrantReadWriteLock
-├── Lecteur.java            # Thread lecteur
-├── Ecrivain.java           # Thread écrivain
-└── makefile                # Compilation et exécution
+Probleme_Lecteurs_Ecrivains/
+├── src/
+│   ├── Main.java               # Point d'entrée de l'application
+│   ├── InterfaceGraphique.java # Interface Swing (GUI)
+│   ├── Simulateur.java         # Orchestration des threads
+│   ├── RessourcePartagee.java  # Ressource protégée par ReentrantReadWriteLock
+│   ├── Lecteur.java            # Thread lecteur
+│   ├── Ecrivain.java           # Thread écrivain
+│   └── makefile                # Compilation et exécution
+└── README.md
 ```
 
 ---
@@ -44,10 +46,10 @@ Une interface graphique permet de configurer, lancer, suivre et arrêter la simu
 
 ```bash
 # Cloner le dépôt
-git clone https://github.com/votre-utilisateur/votre-repo.git
+git clone https://github.com/ilyasel88/Probleme_Lecteurs_Ecrivains.git
 
-# Se placer dans le dossier du projet
-cd votre-repo
+# Se placer dans le dossier src
+cd Probleme_Lecteurs_Ecrivains/src
 ```
 
 ---
@@ -136,3 +138,5 @@ Valeur finale: Donnee-4-par-2
 ## 👥 Auteurs
 
 Projet réalisé dans le cadre d'un cours de **systèmes et programmation concurrente**.
+
+> [@ilyasel88](https://github.com/ilyasel88)
