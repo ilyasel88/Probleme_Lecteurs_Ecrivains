@@ -40,6 +40,18 @@ Une interface graphique permet de configurer, lancer, suivre et arrêter la simu
 
 ---
 
+## 📥 Installation & Clonage
+
+```bash
+# Cloner le dépôt
+git clone https://github.com/votre-utilisateur/votre-repo.git
+
+# Se placer dans le dossier du projet
+cd votre-repo
+```
+
+---
+
 ## ⚙️ Prérequis
 
 - **Java JDK 8** ou supérieur
