@@ -135,8 +135,3 @@ Valeur finale: Donnee-4-par-2
 
 ---
 
-## 👥 Auteurs
-
-Projet réalisé dans le cadre d'un cours de **systèmes et programmation concurrente**.
-
-> [@ilyasel88](https://github.com/ilyasel88)
