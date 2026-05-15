@@ -23,30 +23,33 @@ public class Simulateur {
     }
     
     public void demarrer() {
-        // Afficher le message AVANT de creer les threads
         gui.ajouterMessage("");
         gui.ajouterMessage(">>> SIMULATION EN COURS (" + (dureeSimulationMs/1000) + " secondes) <<<");
         gui.ajouterMessage("");
         
-        // Petite pause pour que le message s'affiche avant le travail des threads
         try {
             Thread.sleep(100);
         } catch (Exception e) {}
         
-        // Creation et demarrage des threads
         for (int i = 1; i <= nbLecteurs; i++) {
+            gui.ajouterMessage("[DEMARRE] Lecteur " + i);
             Thread lecteur = new Thread(new Lecteur(i, ressource, this, gui));
             lecteur.start();
             threads.add(lecteur);
-            gui.ajouterMessage("Lecteur " + i + " demarre");
+            try { Thread.sleep(200); } catch (Exception e) {}
         }
         
         for (int i = 1; i <= nbEcrivains; i++) {
+            gui.ajouterMessage("[DEMARRE] Ecrivain " + i);
             Thread ecrivain = new Thread(new Ecrivain(i, ressource, this, gui));
             ecrivain.start();
             threads.add(ecrivain);
-            gui.ajouterMessage("Ecrivain " + i + " demarre");
+            try { Thread.sleep(200); } catch (Exception e) {}
         }
+        
+        gui.ajouterMessage("");
+        gui.ajouterMessage("----------------------------------------");
+        gui.ajouterMessage("");
         
         try {
             Thread.sleep(dureeSimulationMs);
