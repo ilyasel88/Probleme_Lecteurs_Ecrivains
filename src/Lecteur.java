@@ -13,6 +13,9 @@ public class Lecteur implements Runnable {
         this.simulateur = simulateur;
         this.gui = gui;
     }
+    public static synchronized void reinitialiserCompteur() {
+    compteur = 0;
+}
     
     public static synchronized int getCompteurLectures() {
         return compteur;
