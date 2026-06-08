@@ -14,6 +14,10 @@ public class Ecrivain implements Runnable {
         this.simulateur = simulateur;
         this.gui = gui;
     }
+    public static synchronized void reinitialiserCompteur() {
+    compteurEcritures = 0;
+    compteurModifs = 0;
+}
     
     public static synchronized int getCompteurEcritures() {
         return compteurEcritures;
