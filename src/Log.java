@@ -1,4 +1,5 @@
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -7,27 +8,8 @@ import java.time.format.DateTimeFormatter;
 /**
  * Classe Log — Enregistrement des simulations dans un fichier .log
  *
- * Chaque simulation crée un fichier horodaté du type :
- *   simulation_2026-05-15_14-32-07.log
- *
- * Intégration (3 points) :
- *
- *   1. InterfaceGraphique.demarrerSimulation() — avant de créer le Simulateur :
- *        Log.initialiser(nbLecteurs, nbEcrivains, dureeSecondes);
- *
- *   2. InterfaceGraphique.ajouterMessage() — avant SwingUtilities.invokeLater :
- *        Log.enregistrer(message);
- *
- *   3. Simulateur.arreter() — après l'affichage des stats finales :
- *        Log.fermerAvecStatistiques(
- *            Lecteur.getCompteurLectures(),
- *            Ecrivain.getCompteurEcritures(),
- *            ressource.getDonnee()
- *        );
- *
- * L'affichage dans le journal graphique (zoneLogs) reste géré par
- * InterfaceGraphique.ajouterMessage(). Log.java s'occupe uniquement
- * de la persistance sur disque.
+ * Chaque simulation crée un fichier horodaté dans le dossier logs/ :
+ *   logs/simulation_2026-06-08_11-10-57.log
  */
 public class Log {
 
@@ -40,6 +22,7 @@ public class Log {
 
     private static BufferedWriter writer  = null;
     private static String         fichier = null;
+    private static final String   DOSSIER_LOGS = "logs";
 
     // -----------------------------------------------------------------------
     // API publique
@@ -57,8 +40,19 @@ public class Log {
     public static synchronized void initialiser(int nbLecteurs, int nbEcrivains, int dureeSecondes) {
         fermerSilencieux(); // ferme l'éventuel log précédent
 
+        // Creer le dossier logs s'il n'existe pas
+        File dossier = new File(DOSSIER_LOGS);
+        if (!dossier.exists()) {
+            boolean cree = dossier.mkdir();
+            if (cree) {
+                System.out.println("[Log] Dossier 'logs' cree");
+            } else {
+                System.err.println("[Log] Impossible de creer le dossier 'logs'");
+            }
+        }
+
         String horodatage = LocalDateTime.now().format(FMT_FICHIER);
-        fichier = "simulation_" + horodatage + ".log";
+        fichier = DOSSIER_LOGS + File.separator + "simulation_" + horodatage + ".log";
 
         try {
             writer = new BufferedWriter(new FileWriter(fichier, false));
