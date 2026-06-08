@@ -131,50 +131,62 @@ public class InterfaceGraphique extends JFrame {
     }
     
     private void demarrerSimulation() {
-        int nbLecteurs    = (Integer) spinnerLecteurs.getValue();
-        int nbEcrivains   = (Integer) spinnerEcrivains.getValue();
-        int dureeSecondes = (Integer) spinnerDuree.getValue();
-        int dureeMs       = dureeSecondes * 1000;
-        
-        btnDemarrer.setEnabled(false);
-        btnArreter.setEnabled(true);
+    int nbLecteurs    = (Integer) spinnerLecteurs.getValue();
+    int nbEcrivains   = (Integer) spinnerEcrivains.getValue();
+    int dureeSecondes = (Integer) spinnerDuree.getValue();
+    int dureeMs       = dureeSecondes * 1000;
+    
+    // --- REINITIALISATION DES COMPTEURS STATIQUES ---
+    Lecteur.reinitialiserCompteur();
+    Ecrivain.reinitialiserCompteur();
+    
+    // --- REINITIALISATION DES BARRES DE PROGRESSION ---
+    barreLecteurs.setValue(0);
+    barreLecteurs.setString("Lectures: 0");
+    barreEcrivains.setValue(0);
+    barreEcrivains.setString("Ecritures: 0");
+    lblLectures.setText("Lectures: 0");
+    lblEcritures.setText("Ecritures: 0");
+    lblValeur.setText("Valeur: Initial");
+    
+    btnDemarrer.setEnabled(false);
+    btnArreter.setEnabled(true);
 
-        // --- LOG : initialisation du fichier pour cette simulation ---
-        Log.initialiser(nbLecteurs, nbEcrivains, dureeSecondes);
+    // --- LOG : initialisation du fichier pour cette simulation ---
+    Log.initialiser(nbLecteurs, nbEcrivains, dureeSecondes);
 
-        zoneLogs.setText("");
-        ajouterMessage("=== SIMULATION DEMARREE ===");
-        ajouterMessage("Configuration: " + nbLecteurs + " lecteurs, "
-                + nbEcrivains + " ecrivains, " + dureeSecondes + " secondes");
+    zoneLogs.setText("");
+    ajouterMessage("=== SIMULATION DEMARREE ===");
+    ajouterMessage("Configuration: " + nbLecteurs + " lecteurs, "
+            + nbEcrivains + " ecrivains, " + dureeSecondes + " secondes");
 
-        // Affiche le nom du fichier log dans le journal graphique
-        String fichierLog = Log.getFichier();
-        if (fichierLog != null) {
-            ajouterMessage("Fichier log : " + fichierLog);
-        }
-        
-        final int finalNbLecteurs  = nbLecteurs;
-        final int finalNbEcrivains = nbEcrivains;
-        final int finalDureeMs     = dureeMs;
-        
-        new Thread(new Runnable() {
-            public void run() {
-                simulateur = new Simulateur(
-                        InterfaceGraphique.this,
-                        finalNbLecteurs,
-                        finalNbEcrivains,
-                        finalDureeMs);
-                simulateur.demarrer();
-            }
-        }).start();
-        
-        timer = new Timer(500, new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                mettreAJourBarres();
-            }
-        });
-        timer.start();
+    String fichierLog = Log.getFichier();
+    if (fichierLog != null) {
+        ajouterMessage("Fichier log : " + fichierLog);
     }
+    
+    final int finalNbLecteurs  = nbLecteurs;
+    final int finalNbEcrivains = nbEcrivains;
+    final int finalDureeMs     = dureeMs;
+    
+    new Thread(new Runnable() {
+        public void run() {
+            simulateur = new Simulateur(
+                    InterfaceGraphique.this,
+                    finalNbLecteurs,
+                    finalNbEcrivains,
+                    finalDureeMs);
+            simulateur.demarrer();
+        }
+    }).start();
+    
+    timer = new Timer(500, new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+            mettreAJourBarres();
+        }
+    });
+    timer.start();
+}
     
     private void arreterSimulation() {
         if (simulateur != null) {
