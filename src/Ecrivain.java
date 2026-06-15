@@ -14,10 +14,11 @@ public class Ecrivain implements Runnable {
         this.simulateur = simulateur;
         this.gui = gui;
     }
+    
     public static synchronized void reinitialiserCompteur() {
-    compteurEcritures = 0;
-    compteurModifs = 0;
-}
+        compteurEcritures = 0;
+        compteurModifs = 0;
+    }
     
     public static synchronized int getCompteurEcritures() {
         return compteurEcritures;
@@ -35,17 +36,23 @@ public class Ecrivain implements Runnable {
     public void run() {
         Random rand = new Random();
         
+        // Delai d'arrivee aleatoire (0 a 2000ms)
+        try {
+            Thread.sleep(rand.nextInt(2000));
+        } catch (Exception e) {}
+        
         while (!simulateur.estFini() && !Thread.currentThread().isInterrupted()) {
-            try {
-                Thread.sleep(2000 + rand.nextInt(2500));
-            } catch (Exception e) {
-                break;
-            }
-            
             String valeur = getNouvelleValeur(id);
             ressource.ecrire(id, valeur);
             incrementerCompteurEcritures();
             gui.majEcritures(compteurEcritures);
+            
+            // Pause aleatoire avant la prochaine demande (500 a 2000ms)
+            try {
+                Thread.sleep(500 + rand.nextInt(1500));
+            } catch (Exception e) {
+                break;
+            }
         }
         
         gui.ajouterMessage("Ecrivain " + id + " arrete");
