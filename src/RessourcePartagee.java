@@ -15,7 +15,6 @@ public class RessourcePartagee {
     public RessourcePartagee(InterfaceGraphique gui) {
         this.gui = gui;
         debutSimulation = System.currentTimeMillis();
-        gui.ajouterMessage("Ressource initialisee: " + donnee);
     }
     
     private String getTemps() {
@@ -25,23 +24,30 @@ public class RessourcePartagee {
         return String.format("[%02d:%03d]", secondes, millis);
     }
     
-    public void lire(int id) {
-        // DELAI TRES COURT pour que les lecteurs arrivent presque en meme temps
-        try { Thread.sleep(rand.nextInt(50)); } catch (Exception e) {}
-        
+    // Methode appelee par le lecteur pour demander l'acces
+    public int demanderLecture(int id) {
         int position = compteurFile.incrementAndGet();
-        gui.ajouterMessage(getTemps() + " [FILE] Lecteur " + id + " entre (pos " + position + ")");
-        
+        gui.ajouterMessage(getTemps() + " [FILE] Lecteur " + id + " demande acces (position " + position + ")");
+        return position;
+    }
+    
+    // Methode appelee par l'ecrivain pour demander l'acces
+    public int demanderEcriture(int id) {
+        int position = compteurFile.incrementAndGet();
+        gui.ajouterMessage(getTemps() + " [FILE] Ecrivain " + id + " demande acces (position " + position + ")");
+        return position;
+    }
+    
+    public void lire(int id, int position) {
         rwLock.readLock().lock();
         
         int actifs = lecteursActifs.incrementAndGet();
-        gui.ajouterMessage(getTemps() + " [SORTIE] Lecteur " + id + " sort (pos " + position + ") --- LECTEURS ACTIFS: " + actifs + " ---");
+        gui.ajouterMessage(getTemps() + " [SORTIE] Lecteur " + id + " obtient acces (pos " + position + ") [lecteurs actifs: " + actifs + "]");
         
         long debut = System.currentTimeMillis();
         gui.ajouterMessage(getTemps() + " [DEBUT] Lecteur " + id + " lit");
         
-        // Lecture plus longue (200-400ms) pour bien voir le chevauchement
-        int duree = 200 + rand.nextInt(200);
+        int duree = 100 + rand.nextInt(100);
         try { Thread.sleep(duree); } catch (Exception e) {}
         
         long dureeReelle = System.currentTimeMillis() - debut;
@@ -50,24 +56,18 @@ public class RessourcePartagee {
         
         rwLock.readLock().unlock();
         actifs = lecteursActifs.decrementAndGet();
-        gui.ajouterMessage(getTemps() + " [FIN] Lecteur " + id + " fin --- LECTEURS ACTIFS: " + actifs + " ---\n");
+        gui.ajouterMessage(getTemps() + " [FIN] Lecteur " + id + " fin [lecteurs actifs: " + actifs + "]\n");
     }
     
-    public void ecrire(int id, String valeur) {
-        // Delai aleatoire avant d'entrer
-        try { Thread.sleep(rand.nextInt(300)); } catch (Exception e) {}
-        
-        int position = compteurFile.incrementAndGet();
-        gui.ajouterMessage(getTemps() + " [FILE] Ecrivain " + id + " entre (pos " + position + ")");
-        
+    public void ecrire(int id, int position, String valeur) {
         rwLock.writeLock().lock();
         
-        gui.ajouterMessage(getTemps() + " [SORTIE] Ecrivain " + id + " sort (pos " + position + ")");
+        gui.ajouterMessage(getTemps() + " [SORTIE] Ecrivain " + id + " obtient acces (pos " + position + ")");
         
         long debut = System.currentTimeMillis();
         gui.ajouterMessage(getTemps() + " [DEBUT] Ecrivain " + id + " ecrit");
         
-        int duree = 150 + rand.nextInt(150);
+        int duree = 150 + rand.nextInt(100);
         try { Thread.sleep(duree); } catch (Exception e) {}
         
         long dureeReelle = System.currentTimeMillis() - debut;
