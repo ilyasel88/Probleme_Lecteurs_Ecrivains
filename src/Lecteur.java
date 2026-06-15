@@ -6,6 +6,7 @@ public class Lecteur implements Runnable {
     private Simulateur simulateur;
     private InterfaceGraphique gui;
     private static int compteur = 0;
+    private Random rand = new Random();
     
     public Lecteur(int id, RessourcePartagee ressource, Simulateur simulateur, InterfaceGraphique gui) {
         this.id = id;
@@ -27,24 +28,21 @@ public class Lecteur implements Runnable {
     }
     
     public void run() {
-        Random rand = new Random();
-        
-        // Delai d'arrivee aleatoire (0 a 2000ms)
-        try {
-            Thread.sleep(rand.nextInt(2000));
-        } catch (Exception e) {}
+        // Pause aleatoire avant la premiere demande
+        try { Thread.sleep(rand.nextInt(500)); } catch (Exception e) {}
         
         while (!simulateur.estFini() && !Thread.currentThread().isInterrupted()) {
-            ressource.lire(id);
+            // 1. Demander l'acces (entrer dans la file)
+            int position = ressource.demanderLecture(id);
+            
+            // 2. Lire (attend son tour si necessaire)
+            ressource.lire(id, position);
+            
             incrementerCompteur();
             gui.majLectures(compteur);
             
-            // Pause aleatoire avant la prochaine demande (200 a 1500ms)
-            try {
-                Thread.sleep(200 + rand.nextInt(1300));
-            } catch (Exception e) {
-                break;
-            }
+            // 3. Pause avant la prochaine demande
+            try { Thread.sleep(500 + rand.nextInt(1000)); } catch (Exception e) { break; }
         }
         
         gui.ajouterMessage("Lecteur " + id + " arrete");
