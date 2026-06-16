@@ -1,0 +1,273 @@
+========================================
+   SIMULATION LECTEURS-ECRIVAINS
+   Demarree le : 16/06/2026 00:47:07
+----------------------------------------
+   Lecteurs   : 7
+   Ecrivains  : 2
+   Duree      : 5 secondes
+========================================
+
+[00:47:07.345] === SIMULATION DEMARREE ===
+[00:47:07.355] Configuration: 7 lecteurs, 2 ecrivains, 5 secondes
+[00:47:07.356] Fichier log : logs/simulation_2026-06-16_00-47-07.log
+[00:47:07.366] [CREATION] Lecteur 1
+[00:47:07.366] [CREATION] Lecteur 2
+[00:47:07.366] [CREATION] Lecteur 3
+[00:47:07.367] [CREATION] Lecteur 4
+[00:47:07.367] [CREATION] Lecteur 5
+[00:47:07.367] [CREATION] Lecteur 6
+[00:47:07.367] [CREATION] Lecteur 7
+[00:47:07.368] [CREATION] Ecrivain 1
+[00:47:07.368] [CREATION] Ecrivain 2
+
+[00:47:07.369] ----------------------------------------
+
+[00:47:07.373] >>> SIMULATION EN COURS (5 secondes) <<<
+
+[00:47:07.466] [00:095] [FILE] Lecteur 2 demande acces (position 1)
+[00:47:07.473] [00:101] [SORTIE] Lecteur 2 obtient acces (pos 1) [lecteurs actifs: 1]
+[00:47:07.474] [00:109] [DEBUT] Lecteur 2 lit
+[00:47:07.532] [00:166] [FILE] Ecrivain 1 demande acces (position 2)
+[00:47:07.549] [00:184] [FILE] Lecteur 4 demande acces (position 3)
+[00:47:07.697] [00:308] [LECTURE] Lecteur 2 lit: Initial (199ms)
+[00:47:07.699] [00:333] [FIN] Lecteur 2 fin [lecteurs actifs: 0]
+
+[00:47:07.700] [00:334] [SORTIE] Ecrivain 1 obtient acces (pos 2)
+[00:47:07.702] [00:336] [DEBUT] Ecrivain 1 ecrit
+[00:47:07.703] [00:337] [FILE] Ecrivain 2 demande acces (position 4)
+[00:47:07.724] [00:358] [FILE] Lecteur 5 demande acces (position 5)
+[00:47:07.792] [00:427] [FILE] Lecteur 3 demande acces (position 6)
+[00:47:07.800] [00:435] [FILE] Lecteur 7 demande acces (position 7)
+[00:47:07.897] [00:532] [FILE] Lecteur 1 demande acces (position 8)
+[00:47:07.899] [00:533] [ECRITURE] Ecrivain 1 ecrit: Donnee-1-par-1 (197ms)
+[00:47:07.901] [00:536] [SORTIE] Lecteur 4 obtient acces (pos 3) [lecteurs actifs: 1]
+[00:47:07.901] [00:536] [DEBUT] Lecteur 4 lit
+[00:47:07.903] [00:538] [FILE] Lecteur 6 demande acces (position 9)
+[00:47:07.904] [00:535] [FIN] Ecrivain 1 fin
+
+[00:47:08.072] [00:704] [LECTURE] Lecteur 4 lit: Donnee-1-par-1 (168ms)
+[00:47:08.074] [00:708] [FIN] Lecteur 4 fin [lecteurs actifs: 0]
+
+[00:47:08.076] [00:708] [SORTIE] Ecrivain 2 obtient acces (pos 4)
+[00:47:08.077] [00:711] [DEBUT] Ecrivain 2 ecrit
+[00:47:08.276] [00:911] [ECRITURE] Ecrivain 2 ecrit: Donnee-2-par-2 (200ms)
+[00:47:08.277] [00:912] [FIN] Ecrivain 2 fin
+
+[00:47:08.278] [00:912] [SORTIE] Lecteur 5 obtient acces (pos 5) [lecteurs actifs: 1]
+[00:47:08.279] [00:912] [SORTIE] Lecteur 7 obtient acces (pos 7) [lecteurs actifs: 3]
+[00:47:08.279] [00:914] [DEBUT] Lecteur 5 lit
+[00:47:08.280] [00:914] [DEBUT] Lecteur 7 lit
+[00:47:08.280] [00:915] [SORTIE] Lecteur 1 obtient acces (pos 8) [lecteurs actifs: 4]
+[00:47:08.281] [00:916] [SORTIE] Lecteur 6 obtient acces (pos 9) [lecteurs actifs: 5]
+[00:47:08.282] [00:916] [DEBUT] Lecteur 6 lit
+[00:47:08.282] [00:912] [SORTIE] Lecteur 3 obtient acces (pos 6) [lecteurs actifs: 2]
+[00:47:08.283] [00:918] [DEBUT] Lecteur 3 lit
+[00:47:08.284] [00:916] [DEBUT] Lecteur 1 lit
+[00:47:08.387] [01:021] [LECTURE] Lecteur 5 lit: Donnee-2-par-2 (107ms)
+[00:47:08.388] [01:022] [FIN] Lecteur 5 fin [lecteurs actifs: 4]
+
+[00:47:08.405] [01:039] [LECTURE] Lecteur 7 lit: Donnee-2-par-2 (125ms)
+[00:47:08.406] [01:040] [FIN] Lecteur 7 fin [lecteurs actifs: 3]
+
+[00:47:08.411] [01:045] [LECTURE] Lecteur 6 lit: Donnee-2-par-2 (129ms)
+[00:47:08.412] [01:046] [FIN] Lecteur 6 fin [lecteurs actifs: 2]
+
+[00:47:08.441] [01:075] [LECTURE] Lecteur 1 lit: Donnee-2-par-2 (159ms)
+[00:47:08.442] [01:076] [FIN] Lecteur 1 fin [lecteurs actifs: 1]
+
+[00:47:08.445] [01:080] [LECTURE] Lecteur 3 lit: Donnee-2-par-2 (162ms)
+[00:47:08.446] [01:080] [FIN] Lecteur 3 fin [lecteurs actifs: 0]
+
+[00:47:08.827] [01:461] [FILE] Lecteur 4 demande acces (position 10)
+[00:47:08.828] [01:462] [SORTIE] Lecteur 4 obtient acces (pos 10) [lecteurs actifs: 1]
+[00:47:08.828] [01:463] [DEBUT] Lecteur 4 lit
+[00:47:08.968] [01:603] [LECTURE] Lecteur 4 lit: Donnee-2-par-2 (140ms)
+[00:47:08.969] [01:604] [FIN] Lecteur 4 fin [lecteurs actifs: 0]
+
+[00:47:09.064] [01:698] [FILE] Lecteur 7 demande acces (position 11)
+[00:47:09.065] [01:699] [SORTIE] Lecteur 7 obtient acces (pos 11) [lecteurs actifs: 1]
+[00:47:09.066] [01:700] [DEBUT] Lecteur 7 lit
+[00:47:09.088] [01:723] [FILE] Lecteur 2 demande acces (position 12)
+[00:47:09.089] [01:724] [SORTIE] Lecteur 2 obtient acces (pos 12) [lecteurs actifs: 2]
+[00:47:09.090] [01:725] [DEBUT] Lecteur 2 lit
+[00:47:09.176] [01:810] [LECTURE] Lecteur 7 lit: Donnee-2-par-2 (110ms)
+[00:47:09.176] [01:811] [FIN] Lecteur 7 fin [lecteurs actifs: 1]
+
+[00:47:09.231] [01:866] [FILE] Lecteur 3 demande acces (position 13)
+[00:47:09.232] [01:867] [SORTIE] Lecteur 3 obtient acces (pos 13) [lecteurs actifs: 2]
+[00:47:09.233] [01:868] [DEBUT] Lecteur 3 lit
+[00:47:09.288] [01:923] [LECTURE] Lecteur 2 lit: Donnee-2-par-2 (198ms)
+[00:47:09.289] [01:924] [FIN] Lecteur 2 fin [lecteurs actifs: 1]
+
+[00:47:09.364] [01:998] [LECTURE] Lecteur 3 lit: Donnee-2-par-2 (130ms)
+[00:47:09.364] [01:999] [FIN] Lecteur 3 fin [lecteurs actifs: 0]
+
+[00:47:09.386] [02:021] [FILE] Ecrivain 1 demande acces (position 14)
+[00:47:09.387] [02:022] [SORTIE] Ecrivain 1 obtient acces (pos 14)
+[00:47:09.387] [02:022] [DEBUT] Ecrivain 1 ecrit
+[00:47:09.417] [02:052] [FILE] Lecteur 5 demande acces (position 15)
+[00:47:09.571] [02:205] [FILE] Lecteur 1 demande acces (position 16)
+[00:47:09.579] [02:213] [ECRITURE] Ecrivain 1 ecrit: Donnee-3-par-1 (191ms)
+[00:47:09.582] [02:217] [FIN] Ecrivain 1 fin
+
+[00:47:09.585] [02:217] [SORTIE] Lecteur 5 obtient acces (pos 15) [lecteurs actifs: 1]
+[00:47:09.585] [02:218] [SORTIE] Lecteur 1 obtient acces (pos 16) [lecteurs actifs: 2]
+[00:47:09.586] [02:221] [DEBUT] Lecteur 1 lit
+[00:47:09.588] [02:220] [DEBUT] Lecteur 5 lit
+[00:47:09.688] [02:323] [LECTURE] Lecteur 1 lit: Donnee-3-par-1 (102ms)
+[00:47:09.689] [02:324] [FIN] Lecteur 1 fin [lecteurs actifs: 1]
+
+[00:47:09.757] [02:392] [LECTURE] Lecteur 5 lit: Donnee-3-par-1 (172ms)
+[00:47:09.758] [02:393] [FIN] Lecteur 5 fin [lecteurs actifs: 0]
+
+[00:47:09.773] [02:407] [FILE] Lecteur 6 demande acces (position 17)
+[00:47:09.773] [02:408] [SORTIE] Lecteur 6 obtient acces (pos 17) [lecteurs actifs: 1]
+[00:47:09.774] [02:409] [DEBUT] Lecteur 6 lit
+[00:47:09.804] [02:439] [FILE] Lecteur 2 demande acces (position 18)
+[00:47:09.805] [02:440] [SORTIE] Lecteur 2 obtient acces (pos 18) [lecteurs actifs: 2]
+[00:47:09.806] [02:440] [DEBUT] Lecteur 2 lit
+[00:47:09.912] [02:547] [LECTURE] Lecteur 6 lit: Donnee-3-par-1 (138ms)
+[00:47:09.912] [02:547] [FIN] Lecteur 6 fin [lecteurs actifs: 1]
+
+[00:47:09.944] [02:579] [FILE] Lecteur 3 demande acces (position 19)
+[00:47:09.944] [02:579] [SORTIE] Lecteur 3 obtient acces (pos 19) [lecteurs actifs: 2]
+[00:47:09.945] [02:580] [DEBUT] Lecteur 3 lit
+[00:47:09.955] [02:590] [LECTURE] Lecteur 2 lit: Donnee-3-par-1 (150ms)
+[00:47:09.956] [02:590] [FIN] Lecteur 2 fin [lecteurs actifs: 1]
+
+[00:47:10.138] [02:773] [LECTURE] Lecteur 3 lit: Donnee-3-par-1 (193ms)
+[00:47:10.139] [02:774] [FIN] Lecteur 3 fin [lecteurs actifs: 0]
+
+[00:47:10.431] [03:066] [FILE] Ecrivain 2 demande acces (position 20)
+[00:47:10.432] [03:067] [SORTIE] Ecrivain 2 obtient acces (pos 20)
+[00:47:10.433] [03:068] [DEBUT] Ecrivain 2 ecrit
+[00:47:10.454] [03:089] [FILE] Lecteur 7 demande acces (position 21)
+[00:47:10.455] [03:089] [FILE] Lecteur 4 demande acces (position 22)
+[00:47:10.496] [03:131] [FILE] Lecteur 5 demande acces (position 23)
+[00:47:10.621] [03:256] [FILE] Lecteur 2 demande acces (position 24)
+[00:47:10.626] [03:260] [ECRITURE] Ecrivain 2 ecrit: Donnee-4-par-2 (192ms)
+[00:47:10.626] [03:261] [SORTIE] Lecteur 7 obtient acces (pos 21) [lecteurs actifs: 1]
+[00:47:10.626] [03:261] [DEBUT] Lecteur 7 lit
+[00:47:10.627] [03:262] [SORTIE] Lecteur 4 obtient acces (pos 22) [lecteurs actifs: 2]
+[00:47:10.627] [03:262] [DEBUT] Lecteur 4 lit
+[00:47:10.627] [03:261] [FIN] Ecrivain 2 fin
+
+[00:47:10.628] [03:262] [SORTIE] Lecteur 5 obtient acces (pos 23) [lecteurs actifs: 3]
+[00:47:10.628] [03:263] [DEBUT] Lecteur 5 lit
+[00:47:10.628] [03:263] [SORTIE] Lecteur 2 obtient acces (pos 24) [lecteurs actifs: 4]
+[00:47:10.629] [03:264] [DEBUT] Lecteur 2 lit
+[00:47:10.758] [03:393] [LECTURE] Lecteur 7 lit: Donnee-4-par-2 (132ms)
+[00:47:10.759] [03:394] [FIN] Lecteur 7 fin [lecteurs actifs: 3]
+
+[00:47:10.765] [03:400] [LECTURE] Lecteur 2 lit: Donnee-4-par-2 (136ms)
+[00:47:10.766] [03:401] [FIN] Lecteur 2 fin [lecteurs actifs: 2]
+
+[00:47:10.769] [03:404] [LECTURE] Lecteur 4 lit: Donnee-4-par-2 (142ms)
+[00:47:10.771] [03:406] [FIN] Lecteur 4 fin [lecteurs actifs: 1]
+
+[00:47:10.792] [03:426] [LECTURE] Lecteur 5 lit: Donnee-4-par-2 (163ms)
+[00:47:10.793] [03:428] [FIN] Lecteur 5 fin [lecteurs actifs: 0]
+
+[00:47:11.092] [03:727] [FILE] Lecteur 1 demande acces (position 25)
+[00:47:11.093] [03:728] [SORTIE] Lecteur 1 obtient acces (pos 25) [lecteurs actifs: 1]
+[00:47:11.093] [03:728] [DEBUT] Lecteur 1 lit
+[00:47:11.293] [03:928] [LECTURE] Lecteur 1 lit: Donnee-4-par-2 (200ms)
+[00:47:11.294] [03:929] [FIN] Lecteur 1 fin [lecteurs actifs: 0]
+
+[00:47:11.364] [03:999] [FILE] Lecteur 6 demande acces (position 26)
+[00:47:11.365] [03:999] [SORTIE] Lecteur 6 obtient acces (pos 26) [lecteurs actifs: 1]
+[00:47:11.365] [04:000] [DEBUT] Lecteur 6 lit
+[00:47:11.476] [04:110] [LECTURE] Lecteur 6 lit: Donnee-4-par-2 (110ms)
+[00:47:11.477] [04:111] [FIN] Lecteur 6 fin [lecteurs actifs: 0]
+
+[00:47:11.484] [04:118] [FILE] Lecteur 3 demande acces (position 27)
+[00:47:11.485] [04:119] [SORTIE] Lecteur 3 obtient acces (pos 27) [lecteurs actifs: 1]
+[00:47:11.486] [04:121] [DEBUT] Lecteur 3 lit
+[00:47:11.522] [04:157] [FILE] Ecrivain 1 demande acces (position 28)
+[00:47:11.591] [04:226] [FILE] Lecteur 2 demande acces (position 29)
+[00:47:11.612] [04:246] [LECTURE] Lecteur 3 lit: Donnee-4-par-2 (125ms)
+[00:47:11.612] [04:247] [FIN] Lecteur 3 fin [lecteurs actifs: 0]
+
+[00:47:11.613] [04:247] [SORTIE] Ecrivain 1 obtient acces (pos 28)
+[00:47:11.614] [04:248] [DEBUT] Ecrivain 1 ecrit
+[00:47:11.627] [04:262] [FILE] Lecteur 5 demande acces (position 30)
+[00:47:11.812] [04:447] [ECRITURE] Ecrivain 1 ecrit: Donnee-5-par-1 (199ms)
+[00:47:11.813] [04:448] [FIN] Ecrivain 1 fin
+
+[00:47:11.814] [04:448] [SORTIE] Lecteur 5 obtient acces (pos 30) [lecteurs actifs: 2]
+[00:47:11.814] [04:448] [SORTIE] Lecteur 2 obtient acces (pos 29) [lecteurs actifs: 1]
+[00:47:11.814] [04:449] [DEBUT] Lecteur 5 lit
+[00:47:11.815] [04:449] [DEBUT] Lecteur 2 lit
+[00:47:11.934] [04:568] [LECTURE] Lecteur 2 lit: Donnee-5-par-1 (119ms)
+[00:47:11.935] [04:569] [FIN] Lecteur 2 fin [lecteurs actifs: 1]
+
+[00:47:11.963] [04:598] [LECTURE] Lecteur 5 lit: Donnee-5-par-1 (149ms)
+[00:47:11.964] [04:599] [FIN] Lecteur 5 fin [lecteurs actifs: 0]
+
+[00:47:11.971] [04:605] [FILE] Ecrivain 2 demande acces (position 31)
+[00:47:11.972] [04:606] [SORTIE] Ecrivain 2 obtient acces (pos 31)
+[00:47:11.972] [04:607] [DEBUT] Ecrivain 2 ecrit
+[00:47:11.987] [04:621] [FILE] Lecteur 4 demande acces (position 32)
+[00:47:12.043] [04:678] [FILE] Lecteur 7 demande acces (position 33)
+[00:47:12.169] [04:804] [ECRITURE] Ecrivain 2 ecrit: Donnee-6-par-2 (197ms)
+[00:47:12.170] [04:805] [FIN] Ecrivain 2 fin
+
+[00:47:12.171] [04:806] [SORTIE] Lecteur 4 obtient acces (pos 32) [lecteurs actifs: 1]
+[00:47:12.172] [04:806] [SORTIE] Lecteur 7 obtient acces (pos 33) [lecteurs actifs: 2]
+[00:47:12.172] [04:807] [DEBUT] Lecteur 4 lit
+[00:47:12.172] [04:807] [DEBUT] Lecteur 7 lit
+[00:47:12.173] [04:808] [FILE] Lecteur 1 demande acces (position 34)
+[00:47:12.174] [04:808] [SORTIE] Lecteur 1 obtient acces (pos 34) [lecteurs actifs: 3]
+[00:47:12.174] [04:809] [DEBUT] Lecteur 1 lit
+[00:47:12.301] [04:936] [FILE] Lecteur 6 demande acces (position 35)
+[00:47:12.303] [04:937] [SORTIE] Lecteur 6 obtient acces (pos 35) [lecteurs actifs: 4]
+[00:47:12.303] [04:938] [DEBUT] Lecteur 6 lit
+[00:47:12.322] [04:957] [LECTURE] Lecteur 7 lit: Donnee-6-par-2 (150ms)
+[00:47:12.323] [04:958] [FIN] Lecteur 7 fin [lecteurs actifs: 3]
+
+[00:47:12.339] [04:974] [LECTURE] Lecteur 1 lit: Donnee-6-par-2 (165ms)
+[00:47:12.340] [04:974] [FIN] Lecteur 1 fin [lecteurs actifs: 2]
+
+[00:47:12.350] [04:985] [LECTURE] Lecteur 4 lit: Donnee-6-par-2 (178ms)
+[00:47:12.351] [04:986] [FIN] Lecteur 4 fin [lecteurs actifs: 1]
+
+[00:47:12.415] [05:050] [LECTURE] Lecteur 6 lit: Donnee-6-par-2 (112ms)
+[00:47:12.416] [05:051] [FIN] Lecteur 6 fin [lecteurs actifs: 0]
+
+[00:47:12.508] [05:142] [FILE] Lecteur 3 demande acces (position 36)
+[00:47:12.509] [05:143] [SORTIE] Lecteur 3 obtient acces (pos 36) [lecteurs actifs: 1]
+[00:47:12.509] [05:144] [DEBUT] Lecteur 3 lit
+[00:47:12.561] [05:195] [FILE] Lecteur 2 demande acces (position 37)
+[00:47:12.561] [05:196] [SORTIE] Lecteur 2 obtient acces (pos 37) [lecteurs actifs: 2]
+[00:47:12.562] [05:197] [DEBUT] Lecteur 2 lit
+[00:47:12.645] [05:280] [LECTURE] Lecteur 3 lit: Donnee-6-par-2 (136ms)
+[00:47:12.646] [05:280] [FIN] Lecteur 3 fin [lecteurs actifs: 1]
+
+
+[00:47:12.722] >>> ARRET DE LA SIMULATION <<<
+[00:47:12.723] [05:358] [LECTURE] Lecteur 2 lit: Donnee-6-par-2 (161ms)
+[00:47:12.723] Lecteur 5 arrete
+[00:47:12.724] [05:358] [FIN] Lecteur 2 fin [lecteurs actifs: 0]
+
+[00:47:12.724] Lecteur 6 arrete
+[00:47:12.725] Ecrivain 1 arrete
+[00:47:12.726] Lecteur 4 arrete
+[00:47:12.728] Lecteur 1 arrete
+[00:47:12.729] Lecteur 7 arrete
+[00:47:12.729] Ecrivain 2 arrete
+[00:47:12.730] Lecteur 3 arrete
+
+[00:47:13.725] === STATISTIQUES FINALES ===
+[00:47:13.726] Lectures  : 31
+[00:47:13.727] Ecritures : 6
+[00:47:13.727] Valeur finale : Donnee-6-par-2
+
+========================================
+   STATISTIQUES FINALES
+----------------------------------------
+   Lectures    : 31
+   Ecritures   : 6
+   Valeur      : Donnee-6-par-2
+========================================
+   Terminee le : 16/06/2026 00:47:13
+========================================
