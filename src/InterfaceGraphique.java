@@ -229,6 +229,9 @@ public class InterfaceGraphique extends JFrame {
                 zoneLogs.setCaretPosition(zoneLogs.getDocument().getLength());
             }
         });
+         try {
+        Thread.sleep(200);  
+    } catch (Exception e) {}
     }
     
     public void majValeur(String valeur) {
