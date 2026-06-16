@@ -38,8 +38,8 @@ public class RessourcePartagee {
         return position;
     }
     
-    public void lire(int id, int position) {
-        rwLock.readLock().lock();
+    public synchronized void lire(int id, int position) {
+        
         
         int actifs = lecteursActifs.incrementAndGet();
         gui.ajouterMessage(getTemps() + " [SORTIE] Lecteur " + id + " obtient acces (pos " + position + ") [lecteurs actifs: " + actifs + "]");
@@ -54,13 +54,13 @@ public class RessourcePartagee {
         
         gui.ajouterMessage(getTemps() + " [LECTURE] Lecteur " + id + " lit: " + donnee + " (" + dureeReelle + "ms)");
         
-        rwLock.readLock().unlock();
+        
         actifs = lecteursActifs.decrementAndGet();
         gui.ajouterMessage(getTemps() + " [FIN] Lecteur " + id + " fin [lecteurs actifs: " + actifs + "]\n");
     }
     
-    public void ecrire(int id, int position, String valeur) {
-        rwLock.writeLock().lock();
+    public synchronized void ecrire(int id, int position, String valeur) {
+        
         
         gui.ajouterMessage(getTemps() + " [SORTIE] Ecrivain " + id + " obtient acces (pos " + position + ")");
         
@@ -76,7 +76,7 @@ public class RessourcePartagee {
         donnee = valeur;
         gui.majValeur(valeur);
         
-        rwLock.writeLock().unlock();
+        
         gui.ajouterMessage(getTemps() + " [FIN] Ecrivain " + id + " fin\n");
     }
     
